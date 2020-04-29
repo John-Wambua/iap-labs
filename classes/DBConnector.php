@@ -60,9 +60,13 @@
             $this->dbh->lastInsertId();
         }
 
-        //Fetch data from the DB in form of an assotiative array
+        //Fetch data from the DB in form of an associative array
         public function resultset(){
             $this->execute();
             return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+        public function single(){
+            $this->execute();
+            return $this->stmt->fetch(PDO::FETCH_ASSOC);
         }
     }
